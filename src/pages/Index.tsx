@@ -1,14 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { ChatList } from "@/components/ChatList";
+import { ChatView } from "@/components/ChatView";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const Index = () => {
+export default function Index() {
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const isMobile = useIsMobile();
+  const [showChat, setShowChat] = useState(false);
+
+  const handleSelectChat = (userId: string) => {
+    setSelectedUserId(userId);
+    if (isMobile) {
+      setShowChat(true);
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="h-screen flex bg-white">
+      <div className={cn(
+        "h-full",
+        isMobile ? (showChat ? "hidden" : "w-full") : "w-[380px]",
+        "border-r"
+      )}>
+        <ChatList onSelectChat={handleSelectChat} selectedUserId={selectedUserId} />
+      </div>
+      <div className={cn(
+        "h-full",
+        isMobile ? (showChat ? "w-full" : "hidden") : "flex-1"
+      )}>
+        <ChatView userId={selectedUserId} isVisible={isMobile ? showChat : true} />
       </div>
     </div>
   );
-};
-
-export default Index;
+}
