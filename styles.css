@@ -151,12 +151,12 @@ body {
 }
 
 .chat-view-header {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border);
-  background: white;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .back-button {
