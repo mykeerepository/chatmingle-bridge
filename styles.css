@@ -220,5 +220,10 @@ body {
   
   .back-button {
     display: block;
-  }
+    margin-left: -20px;
+}
+  .user-details h2 {
+    font-weight: 600;
+    font-size: 16px;
+}
 }
