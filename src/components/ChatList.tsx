@@ -31,7 +31,7 @@ const messages: Message[] = [
     id: "2",
     userId: "2",
     username: "Alex Winter",
-    avatar: "/placeholder.svg",
+    avatar: "",
     lastMessage: "Hey, how's it going?",
     timestamp: "10:15 PM",
     isOnline: false,
@@ -40,12 +40,21 @@ const messages: Message[] = [
     id: "3",
     userId: "3",
     username: "Sam Spring",
-    avatar: "/placeholder.svg",
+    avatar: "",
     lastMessage: "See you tomorrow!",
     timestamp: "9:45 PM",
     isOnline: true,
   },
 ];
+
+const getGradientBackground = (index: number) => {
+  const gradients = [
+    "linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)",
+    "linear-gradient(135deg, #D946EF 0%, #8B5CF6 100%)",
+    "linear-gradient(135deg, #6E59A5 0%, #E5DEFF 100%)",
+  ];
+  return gradients[index % gradients.length];
+};
 
 export function ChatList({ onSelectChat, selectedUserId }: ChatListProps) {
   return (
@@ -54,7 +63,7 @@ export function ChatList({ onSelectChat, selectedUserId }: ChatListProps) {
         <h2 className="text-xl font-semibold">Messages</h2>
       </div>
       <div className="flex-1 overflow-y-auto">
-        {messages.map((message) => (
+        {messages.map((message, index) => (
           <div
             key={message.id}
             className={cn(
@@ -67,7 +76,16 @@ export function ChatList({ onSelectChat, selectedUserId }: ChatListProps) {
             <div className="relative">
               <Avatar className="h-12 w-12">
                 <AvatarImage src={message.avatar} alt={message.username} />
-                <AvatarFallback>{message.username[0]}</AvatarFallback>
+                <AvatarFallback 
+                  style={{ 
+                    background: getGradientBackground(index),
+                    color: 'white',
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {message.username[0]}
+                </AvatarFallback>
               </Avatar>
               {message.isOnline && (
                 <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white" />

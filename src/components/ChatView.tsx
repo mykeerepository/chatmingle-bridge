@@ -6,7 +6,6 @@ interface ChatViewProps {
   isVisible: boolean;
 }
 
-// Define the user details that match the messages array from ChatList
 const users = {
   "1": {
     username: "Eva Summer",
@@ -15,14 +14,23 @@ const users = {
   },
   "2": {
     username: "Alex Winter",
-    avatar: "/placeholder.svg",
+    avatar: "",
     status: "Offline",
   },
   "3": {
     username: "Sam Spring",
-    avatar: "/placeholder.svg",
+    avatar: "",
     status: "Active now",
   },
+};
+
+const getGradientBackground = (userId: string) => {
+  const gradients = [
+    "linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)",
+    "linear-gradient(135deg, #D946EF 0%, #8B5CF6 100%)",
+    "linear-gradient(135deg, #6E59A5 0%, #E5DEFF 100%)",
+  ];
+  return gradients[parseInt(userId) % gradients.length];
 };
 
 export function ChatView({ userId, isVisible }: ChatViewProps) {
@@ -49,7 +57,16 @@ export function ChatView({ userId, isVisible }: ChatViewProps) {
       <div className="flex items-center gap-4 p-4 border-b bg-white">
         <Avatar className="h-12 w-12">
           <AvatarImage src={userDetails.avatar} alt={userDetails.username} />
-          <AvatarFallback>{userDetails.username[0]}</AvatarFallback>
+          <AvatarFallback 
+            style={{ 
+              background: getGradientBackground(userId),
+              color: 'white',
+              fontSize: '1.2rem',
+              fontWeight: 'bold'
+            }}
+          >
+            {userDetails.username[0]}
+          </AvatarFallback>
         </Avatar>
         <div>
           <h2 className="font-semibold">{userDetails.username}</h2>
