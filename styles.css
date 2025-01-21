@@ -232,4 +232,12 @@ body {
     gap: 1rem;
     margin-left: -20px;
 }
+  .chat-view-header {
+    padding: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 }
