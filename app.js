@@ -2,8 +2,8 @@ const messages = [
   {
     id: "1",
     userId: "1",
-    username: "Eva Summer",
-    avatar: "/lovable-uploads/112d170e-c26f-4e86-a4cc-01f48bdd3883.png",
+    username: "Mykee",
+    avatar: "",
     lastMessage: "The nature here is fantastic!!",
     timestamp: "11:28 PM",
     isOnline: true,
