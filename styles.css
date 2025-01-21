@@ -230,7 +230,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-left: -20px;
+    margin-left: -10px;
 }
   .chat-view-header {
     padding: 0.4rem;
