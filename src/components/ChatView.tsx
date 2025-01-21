@@ -6,11 +6,23 @@ interface ChatViewProps {
   isVisible: boolean;
 }
 
-const userDetails = {
-  id: "1",
-  username: "Eva Summer",
-  avatar: "/lovable-uploads/112d170e-c26f-4e86-a4cc-01f48bdd3883.png",
-  status: "Active now",
+// Define the user details that match the messages array from ChatList
+const users = {
+  "1": {
+    username: "Eva Summer",
+    avatar: "/lovable-uploads/112d170e-c26f-4e86-a4cc-01f48bdd3883.png",
+    status: "Active now",
+  },
+  "2": {
+    username: "Alex Winter",
+    avatar: "/placeholder.svg",
+    status: "Offline",
+  },
+  "3": {
+    username: "Sam Spring",
+    avatar: "/placeholder.svg",
+    status: "Active now",
+  },
 };
 
 export function ChatView({ userId, isVisible }: ChatViewProps) {
@@ -25,6 +37,8 @@ export function ChatView({ userId, isVisible }: ChatViewProps) {
       </div>
     );
   }
+
+  const userDetails = users[userId as keyof typeof users];
 
   return (
     <div className={cn(
