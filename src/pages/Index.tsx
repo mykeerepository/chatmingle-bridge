@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChatList } from "@/components/ChatList";
 import { ChatView } from "@/components/ChatView";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 export default function Index() {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
