@@ -30,8 +30,8 @@ const messages = [
 
 const users = {
   "1": {
-    username: "Eva Summer",
-    avatar: "/lovable-uploads/112d170e-c26f-4e86-a4cc-01f48bdd3883.png",
+    username: "Mykee",
+    avatar: "",
     status: "Active now",
   },
   "2": {
