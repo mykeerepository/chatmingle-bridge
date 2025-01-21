@@ -1,9 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ChatViewProps {
   userId: string | null;
   isVisible: boolean;
+  onClose?: () => void;
 }
 
 const users = {
@@ -33,7 +37,9 @@ const getGradientBackground = (userId: string) => {
   return gradients[parseInt(userId) % gradients.length];
 };
 
-export function ChatView({ userId, isVisible }: ChatViewProps) {
+export function ChatView({ userId, isVisible, onClose }: ChatViewProps) {
+  const isMobile = useIsMobile();
+
   if (!userId) {
     return (
       <div className={cn(
@@ -55,6 +61,16 @@ export function ChatView({ userId, isVisible }: ChatViewProps) {
       isVisible ? "translate-x-0" : "translate-x-full"
     )}>
       <div className="flex items-center gap-4 p-4 border-b bg-white">
+        {isMobile && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="mr-2"
+            onClick={onClose}
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
+        )}
         <Avatar className="h-12 w-12">
           <AvatarImage src={userDetails.avatar} alt={userDetails.username} />
           <AvatarFallback 

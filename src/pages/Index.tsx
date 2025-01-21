@@ -16,6 +16,12 @@ export default function Index() {
     }
   };
 
+  const handleCloseChat = () => {
+    if (isMobile) {
+      setShowChat(false);
+    }
+  };
+
   return (
     <div className="h-screen flex bg-white">
       <div className={cn(
@@ -29,7 +35,11 @@ export default function Index() {
         "h-full",
         isMobile ? (showChat ? "w-full" : "hidden") : "flex-1"
       )}>
-        <ChatView userId={selectedUserId} isVisible={isMobile ? showChat : true} />
+        <ChatView 
+          userId={selectedUserId} 
+          isVisible={isMobile ? showChat : true}
+          onClose={handleCloseChat}
+        />
       </div>
     </div>
   );
