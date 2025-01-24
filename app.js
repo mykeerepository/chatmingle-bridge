@@ -136,6 +136,48 @@ function initializeEventListeners() {
     const chatView = document.getElementById('chatView');
     chatView.classList.remove('active');
   });
+
+  // Message input auto-resize
+  const messageInput = document.getElementById('messageInput');
+  if (messageInput) {
+    messageInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+      // Limit maximum height
+      if (this.scrollHeight > 120) {
+        this.style.height = '120px';
+      }
+    });
+
+    // Handle Enter key (Send on Enter, new line on Shift+Enter)
+    messageInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        const message = this.value.trim();
+        if (message) {
+          // Here you would typically send the message
+          console.log('Sending message:', message);
+          this.value = '';
+          this.style.height = 'auto';
+        }
+      }
+    });
+  }
+
+  // Send button handler
+  const sendButton = document.querySelector('.send-button');
+  if (sendButton) {
+    sendButton.addEventListener('click', () => {
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value.trim();
+      if (message) {
+        // Here you would typically send the message
+        console.log('Sending message:', message);
+        messageInput.value = '';
+        messageInput.style.height = 'auto';
+      }
+    });
+  }
 }
 
 // Initialize the application
