@@ -58,17 +58,18 @@
       </div>
     </div>
 
-    <!-- Load GPT Engineer script first -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <!-- Load application script after -->
-    <script src="app.js"></script>
-    <script>
+    <script type="module">
       import { initializeEmojiPicker } from './emoji-picker.js';
+      
       document.addEventListener('DOMContentLoaded', () => {
-        renderChatList();
-        initializeEventListeners();
+        // Initialize the emoji picker
         initializeEmojiPicker();
+        
+        // Initialize other functionality from app.js
+        window.renderChatList();
+        window.initializeEventListeners();
       });
     </script>
+    <script src="app.js"></script>
   </body>
 </html>

@@ -266,9 +266,8 @@ function initializeEmojiPicker() {
   });
 }
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', () => {
-  renderChatList();
-  initializeEventListeners();
-  initializeEmojiPicker();
-});
+// Expose necessary functions to window object
+window.renderChatList = renderChatList;
+window.initializeEventListeners = initializeEventListeners;
+
+// Remove the DOMContentLoaded event listener from here since we're handling it in index.html
