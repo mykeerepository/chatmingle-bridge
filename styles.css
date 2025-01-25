@@ -144,10 +144,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(102.3deg, rgba(147,39,143,0.05) 5.9%, rgba(234,172,232,0.05) 64%, rgba(246,219,245,0.05) 89%),
-              linear-gradient(to right, #e6e9f0 0%, #eef1f5 100%);
-  background-size: cover;
-  opacity: 0.8;
+  background: #1A1F2C;
+  opacity: 0.95;
   z-index: 0;
 }
 
