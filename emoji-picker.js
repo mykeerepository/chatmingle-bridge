@@ -1,5 +1,5 @@
 function createEmojiPicker() {
-  const recentEmojis = ['😍', '💚', '😝', '😢'];
+  const recentEmojis = ['😍', '😘', '❤️', '😊', '😄', '😁', '👍', '😌', '😔', '😂', '😭', '💋', '😞', '😳'];
   const smileysAndPeople = [
     '😀', '😃', '😄', '😁', '😅', '🥹', '😂', '🤣',
     '😊', '😢', '😉', '😌', '😇', '🙂', '😈', '😊'
@@ -14,9 +14,10 @@ function createEmojiPicker() {
         </div>
         <div class="emoji-categories">
           <button class="active">😀</button>
-          <button>GIF</button>
-          <button>👤</button>
-          <button>📎</button>
+          <button>❤️</button>
+          <button>👍</button>
+          <button>🎉</button>
+          <button>🔍</button>
         </div>
       </div>
       <div class="emoji-sections">
@@ -66,9 +67,9 @@ function initializeEmojiPicker() {
       
       if (window.innerWidth <= 768) {
         // Add active class after a small delay to trigger animation
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           emojiPickerElement.classList.add('active');
-        }, 10);
+        });
       }
       
       emojiPickerVisible = true;
