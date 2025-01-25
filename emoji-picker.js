@@ -21,7 +21,7 @@ function createEmojiPicker() {
       </div>
       <div class="emoji-sections">
         <div class="emoji-section">
-          <h3>Recents</h3>
+          <h3>Frequently Used</h3>
           <div class="emoji-grid">
             ${recentEmojis.map(emoji => `
               <button class="emoji-btn">${emoji}</button>

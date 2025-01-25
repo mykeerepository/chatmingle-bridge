@@ -317,7 +317,7 @@ body {
   bottom: 100%;
   left: 0;
   margin-bottom: 8px;
-  background: white;
+  background: #1A1F2C;
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   width: 352px;
@@ -327,6 +327,7 @@ body {
 
 .emoji-picker {
   padding: 16px;
+  color: white;
 }
 
 .emoji-picker-header {
@@ -338,7 +339,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: #f7fafc;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   margin-bottom: 12px;
 }
@@ -349,12 +350,17 @@ body {
   outline: none;
   width: 100%;
   font-size: 14px;
+  color: white;
+}
+
+.emoji-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .emoji-categories {
   display: flex;
   gap: 8px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 12px;
 }
 
@@ -369,7 +375,7 @@ body {
 
 .emoji-categories button:hover,
 .emoji-categories button.active {
-  background: #f7fafc;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .emoji-section {
@@ -378,13 +384,13 @@ body {
 
 .emoji-section h3 {
   font-size: 14px;
-  color: #4a5568;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 8px;
 }
 
 .emoji-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 4px;
 }
 
@@ -402,5 +408,18 @@ body {
 }
 
 .emoji-btn:hover {
-  background: #f7fafc;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .emoji-picker-container {
+    position: fixed;
+    bottom: 64px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 50vh;
+  }
 }
